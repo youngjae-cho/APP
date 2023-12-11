@@ -41,8 +41,7 @@ clip_model = load_clip_to_cpu()
 token_embedding = clip_model.token_embedding.weight
 print(f"Size of token embedding: {token_embedding.shape}")
 
-prompt_learner = torch.load("output_ver_4/OP_N4/fgvc_aircraft/PLOT/rn50_16shots/nctx16_cscFalse_ctpend/seed1/prompt_learner/model.pth.tar-200", map_location="cpu")["state_dict"]
-# prompt_learner = torch.load("../../PLOT-origin/plot-coop/PRODA_end/OP_N4/fgvc_aircraft/PLOT/rn50_16shots/nctx16_cscFalse_ctpend/seed1/prompt_learner/model.pth.tar-200", map_location="cpu")["state_dict"]
+prompt_learner = torch.load("../model.pth.tar-200", map_location="cpu")["state_dict"]
 
 ctx = prompt_learner["ctx"]
 ctx = ctx.float()
