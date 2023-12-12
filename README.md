@@ -1,4 +1,7 @@
 
+
+![image](https://github.com/youngjae-cho/APP/assets/58834857/51e1807d-6dcb-433d-b7ed-acc3a6628ac9)
+
 # APP
 This folder contains the implementation of the APP method on prompt learning.
 
