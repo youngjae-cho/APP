@@ -355,61 +355,6 @@ class CustomCLIP(nn.Module):
 
 
 
-    # def pretrained(self, image,label):
-    #
-    #     b = image.shape[0]
-    #     image_features = self.image_encoder(image.type(self.dtype))
-    #     image_feature_pool = image_features[0]
-    #     image_features = image_features[1:]
-    #     M = image_features.shape[0]
-    #     self.d = image_features.shape[-1]
-    #
-    #     tokenized_prompts = self.tokenized_prompts.view(self.N,self.n_cls,-1)
-    #
-    #     image_feature_pool = F.normalize(image_feature_pool, dim=1)
-    #
-    #     meta_feature = self.prompt_learner.meta_net(image_feature_pool)
-    #
-    #     meta_feature_cat = torch.cat([meta_feature.unsqueeze(1)] * self.prompt_learner.n_ctx, dim=1)
-    #
-    #     prompt=meta_feature_cat
-    #
-    #
-    #
-    #     meta_feature=meta_feature_cat
-    #
-    #     if meta_feature_cat.dim() == 3:
-    #         meta_feature_cat = meta_feature_cat.unsqueeze(0).expand(self.n_cls, -1, -1, -1)
-    #
-    #     meta_feature_cat = meta_feature_cat.permute(1, 0, 2, 3)
-    #     meta_feature_cat = meta_feature_cat.contiguous().view(self.n_cls, meta_feature_cat.shape[0],
-    #                                                           self.prompt_learner.n_ctx, meta_feature_cat.shape[3])
-    #
-    #     prefix = self.prompt_learner.token_prefix
-    #     suffix = self.prompt_learner.token_suffix
-    #     text_features = []
-    #     for i in range(meta_feature_cat.shape[1]):
-    #         meta_prompts = torch.cat(
-    #             [
-    #                 torch.mean(prefix.view(self.N, self.n_cls, -1, 512), dim=0)[label[i]],  # (n_cls, 1, dim)
-    #                 meta_feature_cat[label[i], i],  # (n_cls, n_ctx, dim)
-    #                 torch.mean(suffix.view(self.N, self.n_cls, -1, 512), dim=0)[label[i]],  # (n_cls, *, dim)
-    #             ],
-    #             dim=0,
-    #         )
-    #         meta_prompts=meta_prompts.unsqueeze(0)
-    #         token=tokenized_prompts[0, label[i]].unsqueeze(0)
-    #         meta_text_feature = F.normalize(self.text_encoder(meta_prompts,token), dim=-1)
-    #         text_features.append(meta_text_feature)
-    #     logit_scale = self.logit_scale.exp()
-    #
-    #     logits = []
-    #     for i in range(len(text_features)):
-    #         logits.append(logit_scale*torch.einsum('d,cd->c', image_feature_pool[i], text_features[i]))
-    #     logits = torch.stack(logits)
-    #     return logits, meta_prompts
-
-
 
 
 
