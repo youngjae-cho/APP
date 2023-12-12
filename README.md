@@ -22,3 +22,7 @@ Then, you can run the commands `bash main.sh DATASET N` under `scripts/`.
 
 `N` is the number of prompts, such as `4`.
 
+## Performance
+
+![image](https://github.com/youngjae-cho/APP/assets/58834857/1ba92412-219f-4e08-9471-ec7e15f42bb8)
+![image](https://github.com/youngjae-cho/APP/assets/58834857/2c0dd9ba-f234-4dfe-8b05-f23998381663)
