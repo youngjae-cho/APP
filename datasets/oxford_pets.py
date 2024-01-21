@@ -163,12 +163,12 @@ class OxfordPets(DatasetBase):
 
         print(f"SUBSAMPLE {subsample.upper()} CLASSES!")
         if subsample == "base":
-            selected = labels[1:n:2]  # take the first half
-            # selected = labels[:m]  # take the first half
+            # selected = labels[1:n:2]  # take the first half
+            selected = labels[:m]  # take the first half
 
         else:
-            selected = labels[0:n:2]  # take the second half
-            # selected = labels[m:]  # take the first half
+            # selected = labels[0:n:2]  # take the second half
+            selected = labels[m:]  # take the first half
 
         relabeler = {y: y_new for y_new, y in enumerate(selected)}
 
